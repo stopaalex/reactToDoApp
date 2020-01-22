@@ -46,6 +46,8 @@
 
 .App .list {
   width: 60vw;
+  max-height: 60vh;
+  overflow: auto;
   padding: 1em 0;
   background: #ececec;
 }
