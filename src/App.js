@@ -29,15 +29,28 @@ class App extends Component {
             return new Date(b.created) - new Date(a.created);
           });
         } else if (sort === 'old') {
-            items = JSON.parse(window.localStorage.getItem('reactTodo')).sort((a, b) => {
-              return new Date(a.created) - new Date(b.created);
-            });
+          items = JSON.parse(window.localStorage.getItem('reactTodo')).sort((a, b) => {
+            return new Date(a.created) - new Date(b.created);
+          });
+        } else if (sort === 'inc') {
+          items = JSON.parse(window.localStorage.getItem('reactTodo')).sort((a, b) => {
+            // return new Date(a.created) - new Date(b.created);
+            if (a.complete === b.complete) {
+              return 0
+            } else if (a.complete) {
+              return 1
+            } else {
+              return -1
+            }
+          });
+        } else {
+          console.log('fuck');
         }
       }
     }
     this.state = {
       items: items,
-      currentItem: {text: '', complete: false, key: '', crerated: '', priority: 0},
+      currentItem: { text: '', complete: false, key: '', crerated: '', priority: 0 },
       currentFilter: sort
     }
   }
@@ -46,11 +59,11 @@ class App extends Component {
     const itemText = e.target.value
 
     let keyid = '', characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for ( var i = 0; i < 32; i++ ) {
+    for (var i = 0; i < 32; i++) {
       keyid += characters.charAt(Math.floor(Math.random() * characters.length));
     }
 
-    const currentItem = { text: itemText, complete: false, key: keyid, created: new Date(), priority: 0}
+    const currentItem = { text: itemText, complete: false, key: keyid, created: new Date(), priority: 0 }
     this.setState({
       currentItem,
     })
@@ -63,7 +76,7 @@ class App extends Component {
       const items = [...this.state.items, newItem]
       this.setState({
         items: items,
-        currentItem: { text: '', complete: false, key: '', created: '', priority: 0},
+        currentItem: { text: '', complete: false, key: '', created: '', priority: 0 },
       });
     }
     let saveList = this.state.items;
@@ -104,7 +117,7 @@ class App extends Component {
     } else {
       filter = e.target.value;
     }
-    
+
     let sortedItems = this.state.items.sort((a, b) => {
       if (filter === 'new') {
         return new Date(b.created) - new Date(a.created);
@@ -112,6 +125,14 @@ class App extends Component {
         return new Date(a.created) - new Date(b.created);
       } else if (filter === 'priority') {
         return b.priority - a.priority;
+      } else if (filter === 'inc') {
+        if (a.complete === b.complete) {
+          return 0
+        } else if (a.complete) {
+          return 1
+        } else {
+          return -1
+        }
       } else {
         return
       }
@@ -120,7 +141,7 @@ class App extends Component {
       items: sortedItems,
       currentFilter: filter
     });
-    window.localStorage.setItem('reactTodoSort', JSON.stringify({sort: filter}));
+    window.localStorage.setItem('reactTodoSort', JSON.stringify({ sort: filter }));
   }
 
   updateSort = str => {
@@ -144,7 +165,7 @@ class App extends Component {
     window.localStorage.setItem('reactTodo', JSON.stringify(updatedItems));
   }
 
-  render () {
+  render() {
     return (
       <div className="App">
 
@@ -157,7 +178,7 @@ class App extends Component {
           />
         </div>
         <div className="filters">
-          <TodoFilters 
+          <TodoFilters
             updateSort={this.updateSort}
             filter={this.state.currentFilter}
             inputElement={this.inputElement}
