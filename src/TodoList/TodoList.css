@@ -1,0 +1,103 @@
+.the-list .item {
+    display: flex;
+    position: relative;
+    border-bottom: 1px solid #c5c5c5;
+    margin: .25em 1em;
+    padding: .5em;
+}
+
+.the-list .item .delete {
+    position: absolute;
+    right: 0;
+    border: 1px solid #c5c5c5;
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    line-height: 13px;
+    color: #c5c5c5;
+}
+
+.the-list .item .delete:hover {
+    border: 1px solid #000000;
+    color: #000000;
+    cursor: pointer;
+}
+
+.the-list .item .toggle {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    border: 1px solid #000000;
+    margin: 0 1em 0 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.the-list .item.complete {
+    opacity: .5;
+}
+
+.the-list .item .toggle.complete:hover {
+    background: #00cc00;
+}
+
+.the-list .item .toggle:hover {
+    background: yellow;
+}
+
+.the-list .item .toggle.incomplete::after {
+    content: '\27f2';
+}
+
+.the-list .item .toggle.complete::after {
+    content: '\2713';
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0)
+}
+
+
+.the-list .item.complete::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: .25;
+    pointer-events: none;
+    background: url(https://ya-webdesign.com/transparent250_/black-lines-png-6.png);
+}
+
+.priority-wrapper {
+    display: flex;
+    width: 90px;
+    justify-content: space-between;
+}
+
+.the-list .item .priority {
+    background: #d5d5d5;
+    height: calc(37px - 1em);
+    width: calc(37px - 1em);
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.the-list .item .priority:hover {
+    opacity: 1;
+}
+
+.the-list .item .priority.up {
+    padding-top: 3px;
+    margin: 0 5px 0 0;
+}
+
+.the-list .item .priority.down {
+    transform: rotate(180deg);
+    padding-top: 4px;
+    margin: 0 20px 0 5px;
+}

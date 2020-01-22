@@ -1,0 +1,45 @@
+.filters {
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+    padding: .5em;
+    position: relative;
+}
+
+.filters >div {
+    display: flex;
+    align-items: center;
+}
+
+.filters >div select {
+    padding: 0 1em;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #c5c5c5;
+    text-align-last: center;
+}
+
+.filters >div >div {
+    height: 100%;
+    font-weight: 600;
+    border: 1px solid #c5c5c5;
+    border-right: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    padding: 0 .5em;
+}
+
+.filters >div .update {
+    position: absolute;
+    right: 0;
+    background: #d5d5d5;
+    font-size: .75em;
+    padding: .5em;
+    border: none;
+    cursor: pointer;
+}
+
+.filters >div .update:hover {
+    background: #e1e1e1
+}

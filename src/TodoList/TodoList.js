@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
+import './TodoList.css'
+
 class TodoList extends Component {
-    
+
     createTask = item => {
 
         if (!item.complete) {
@@ -9,6 +11,11 @@ class TodoList extends Component {
                      key={item}>
                     <div className="toggle complete"
                          onClick={() => this.props.toggleItem(item.key)}></div>
+                    <div className="priority-wrapper">
+                        <div onClick={() => this.props.changePriority(item.key,'up')} className="priority up">^</div>
+                        {item.priority}
+                        <div onClick={() => this.props.changePriority(item.key,'down')} className="priority down">^</div>
+                    </div>
                     {item.text}
                     <div className="delete"
                          onClick={() => this.props.deleteItem(item.key)}>
@@ -20,6 +27,11 @@ class TodoList extends Component {
                      key={item}>
                     <div className="toggle incomplete"
                          onClick={() => this.props.toggleItem(item.key)}></div>
+                    <div className="priority-wrapper">
+                        <div onClick={() => this.props.changePriority(item.key,'up')} className="priority up">^</div>
+                        {item.priority}
+                        <div onClick={() => this.props.changePriority(item.key,'down')} className="priority down">^</div>
+                    </div>
                     {item.text}
                     <div className="delete"
                          onClick={() => this.props.deleteItem(item.key)}>
@@ -27,7 +39,6 @@ class TodoList extends Component {
                     </div>
                 </div>
         }
-
     }
 
     checkCompletion = item => {
@@ -38,7 +49,9 @@ class TodoList extends Component {
         const todoEntries = this.props.entries;
         const listItems = todoEntries.map(this.createTask);
 
-        return <div className="the-list">{listItems}</div>
+        return <div className="the-list">
+                {listItems}
+               </div>
     }
 
 }
