@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/stopaalex/reactToDoApp/static/css/main.fa1609d1.chunk.css",
+    "main.js": "/stopaalex/reactToDoApp/static/js/main.5218ff8a.chunk.js",
+    "main.js.map": "/stopaalex/reactToDoApp/static/js/main.5218ff8a.chunk.js.map",
+    "runtime-main.js": "/stopaalex/reactToDoApp/static/js/runtime-main.36c162c8.js",
+    "runtime-main.js.map": "/stopaalex/reactToDoApp/static/js/runtime-main.36c162c8.js.map",
+    "static/js/2.618bf35b.chunk.js": "/stopaalex/reactToDoApp/static/js/2.618bf35b.chunk.js",
+    "static/js/2.618bf35b.chunk.js.map": "/stopaalex/reactToDoApp/static/js/2.618bf35b.chunk.js.map",
+    "index.html": "/stopaalex/reactToDoApp/index.html",
+    "precache-manifest.b16535d511feb5cda3cc2fbadc37dda8.js": "/stopaalex/reactToDoApp/precache-manifest.b16535d511feb5cda3cc2fbadc37dda8.js",
+    "service-worker.js": "/stopaalex/reactToDoApp/service-worker.js",
+    "static/css/main.fa1609d1.chunk.css.map": "/stopaalex/reactToDoApp/static/css/main.fa1609d1.chunk.css.map",
+    "static/js/2.618bf35b.chunk.js.LICENSE": "/stopaalex/reactToDoApp/static/js/2.618bf35b.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.36c162c8.js",
+    "static/js/2.618bf35b.chunk.js",
+    "static/css/main.fa1609d1.chunk.css",
+    "static/js/main.5218ff8a.chunk.js"
+  ]
+}
