@@ -86,7 +86,6 @@ class App extends Component {
   }
 
   toggleItem = e => {
-    console.log(e);
     let updateItems = this.state.items.map(i => {
       if (i.key === e) {
         i.complete = !i.complete;

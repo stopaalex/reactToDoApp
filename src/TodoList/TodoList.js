@@ -47,7 +47,13 @@ class TodoList extends Component {
 
     render () {
         const todoEntries = this.props.entries;
-        const listItems = todoEntries.map(this.createTask);
+        let listItems = <div></div>;
+
+        if (todoEntries.length > 0) {
+            listItems = todoEntries.map(this.createTask);
+        } else {
+            listItems = <div className="no-tasks">No tasks found, create one!</div>
+        }
 
         return <div className="the-list">
                 {listItems}
